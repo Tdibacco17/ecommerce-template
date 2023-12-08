@@ -7,7 +7,6 @@ export const projectsData: ProductsDataInterface = {
         price: 29.99,
         discount: 5,
         isNewIn: true,
-        isOutstanding: false,
         image: {
             imgSrc: "/assets/products/tshirt.webp",
             imgAlt: "Camisa a Rayas",
@@ -25,7 +24,7 @@ export const projectsData: ProductsDataInterface = {
             ],
             description: ["Camisa de algodón a rayas para hombre."],
         },
-        categories: ["all", "tshirt"],
+        categories: ["all", "tshirt", "outstanding"],
     },
     "sudadera-gris": {
         slug: "sudadera-gris",
@@ -33,7 +32,6 @@ export const projectsData: ProductsDataInterface = {
         price: 39.99,
         discount: 10,
         isNewIn: false,
-        isOutstanding: true,
         image: {
             imgSrc: "/assets/products/sweatshirts.webp",
             imgAlt: "Sudadera Gris",
@@ -51,7 +49,7 @@ export const projectsData: ProductsDataInterface = {
             ],
             description: ["Sudadera cómoda y elegante en color gris."],
         },
-        categories: ["all", "sweatshirts"],
+        categories: ["all", "sweatshirts", "outstanding"],
     },
     "top-black": {
         slug: "top-black",
@@ -59,7 +57,6 @@ export const projectsData: ProductsDataInterface = {
         price: 19.99,
         discount: 0,
         isNewIn: false,
-        isOutstanding: true,
         image: {
             imgSrc: "/assets/products/top.webp",
             imgAlt: "Tank Top Negra",
@@ -85,7 +82,6 @@ export const projectsData: ProductsDataInterface = {
         price: 59.99,
         discount: 15,
         isNewIn: true,
-        isOutstanding: true,
         image: {
             imgSrc: "/assets/products/sportswear.webp",
             imgAlt: "Conjunto Deportivo",

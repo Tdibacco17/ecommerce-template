@@ -11,7 +11,6 @@ export interface ProductInterface {
     discount: number,
     image: ImgDataInterface,
     isNewIn: boolean,
-    isOutstanding: boolean,
     details: {
         imagesData: ImgDataInterface[],
         description: string[],
@@ -24,4 +23,5 @@ export type CategoriesFilterInterface =
     | "tshirt"
     | "sweatshirts"
     | "top"
-    | "sportswear";
+    | "sportswear"
+    | "outstanding";
