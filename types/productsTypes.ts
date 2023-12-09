@@ -1,5 +1,6 @@
 import { ImgDataInterface } from ".";
 
+// product
 export interface ProductsDataInterface {
     [id: string]: ProductInterface;
 }
@@ -18,6 +19,7 @@ export interface ProductInterface {
     categories: CategoriesFilterInterface[]
 }
 
+// categorias
 export type CategoriesFilterInterface =
     "all"
     | "tshirt"
@@ -25,3 +27,27 @@ export type CategoriesFilterInterface =
     | "top"
     | "sportswear"
     | "outstanding";
+
+//checkout mp
+export interface ItemMpInterface {
+    slug: string,
+    name: string
+    price: number,
+    quantity: number,
+}
+
+//notificacion mp
+export interface NotificationType {
+    content: string;
+    isOpen: boolean;
+    type: "approved" | "failure" | "pending" | null;
+}
+
+//cart
+export interface CartItemsDataInterface {
+    cartItems: CartItemInterface[]
+}
+export interface CartItemInterface {
+    slug: string,
+    quantity: number
+}

@@ -1,0 +1,15 @@
+.btn-mp {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(73, 148, 173);
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+}

@@ -11,6 +11,13 @@
       #ffffff20,
       #ffffff10,
       #ffffff10);
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #333333;
+  /*notificaciones*/
+  --succes-color: #00cc99;
+  --failure-color: #ee4646;
+  --pending-color: #ebee46;
 }
 
 * {

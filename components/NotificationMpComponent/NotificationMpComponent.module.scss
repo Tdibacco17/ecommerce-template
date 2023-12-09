@@ -1,0 +1,59 @@
+.notification-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    color: var(--white);
+
+    animation-name: fade-in-out;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    .iconContainer {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        height: 100%;
+        padding: 1rem 1.25rem;
+        border-radius: var(--border-radius);
+        background-color: var(--gray);
+
+        &.approved {
+            border: 1px solid var(--succes-color);
+        }
+
+        &.failure {
+            border: 1px solid var(--failure-color);
+        }
+
+
+        &.pending {
+            border: 1px solid var(--pending-color);
+        }
+
+        .text {
+            font-weight: 500;
+        }
+    }
+}
+
+@keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
