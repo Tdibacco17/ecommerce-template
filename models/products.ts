@@ -1,6 +1,6 @@
 import { ProductsDataInterface } from "@/types/productsTypes";
 
-export const projectsData: ProductsDataInterface = {
+export const productsData: ProductsDataInterface = {
     "camisa-rayas": {
         slug: "camisa-rayas",
         name: "Camisa a Rayas",

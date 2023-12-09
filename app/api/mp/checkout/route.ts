@@ -1,4 +1,4 @@
-import { ItemMpInterface } from '@/types/productsTypes';
+import { ItemMpInterface } from '@/types/mpTypes';
 import MercadoPagoConfig, { Preference } from 'mercadopago';
 import { NextResponse } from 'next/server';
 

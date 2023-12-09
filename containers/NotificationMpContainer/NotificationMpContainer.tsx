@@ -1,6 +1,6 @@
 'use client'
 import NotificationMpComponent from "@/components/NotificationMpComponent/NotificationMpComponent";
-import { NotificationType } from "@/types/productsTypes";
+import { NotificationType } from "@/types/mpTypes";
 import { useEffect, useState } from "react";
 
 export default function NotificationMpContainer() {

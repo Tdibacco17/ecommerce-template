@@ -1,4 +1,4 @@
-import { NotificationType } from "@/types/productsTypes"
+import { NotificationType } from "@/types/mpTypes"
 import styles from "./NotificationMpComponent.module.scss"
 import Image from "next/image"
 
