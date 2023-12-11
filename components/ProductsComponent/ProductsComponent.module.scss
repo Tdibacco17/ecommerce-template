@@ -1,0 +1,15 @@
+.section-products-container {
+    display: flex;
+    justify-content: center;
+
+    .wrapper {
+        max-width: 900px;
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background-color: blue;
+            gap: 2rem;
+        }
+    }
+}
