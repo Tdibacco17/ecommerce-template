@@ -1,25 +1,12 @@
 'use client'
 import MpButtonComponent from "@/components/MpButtonComponent/MpButtonComponent"
-import { ItemMpInterface } from "@/types/mpTypes"
+import { useCart } from "@/hooks/useCart"
+import { ParseResponseInterface } from "@/types"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 export default function MpButtonContainer() {
-    const productos = [
-        {
-            slug: "producto-1",
-            name: "producto-1",
-            price: 225.99,
-            quantity: 2,
-        },
-        {
-            slug: "producto-2",
-            name: "producto-2",
-            price: 640.99,
-            quantity: 5,
-        }
-    ]
-
+    const { cartData, handleClearCart } = useCart();
 
     const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter()
@@ -33,17 +20,21 @@ export default function MpButtonContainer() {
                     "Accept": "application/json, text/plain",
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ itemsMp: productos })
+                body: JSON.stringify({ itemsMp: cartData })
             })
-            const parseResponse = await rawData.json();
+            const parseResponse: ParseResponseInterface = await rawData.json();
             //animacion de tiempo
             await new Promise(resolve => setTimeout(resolve, 2000));
 
             if (parseResponse.status === 500) {
                 console.log("[Error in the request to MP]:", parseResponse.message)
+                handleClearCart()
                 return
             }
-            router.push(parseResponse.url);
+            parseResponse.url &&
+                router.push(parseResponse.url);
+            //Limpiamos carrito al ir a MP
+            handleClearCart()
             return
         } catch (error) {
             console.log("[Catch error in the request to MP]:", error);

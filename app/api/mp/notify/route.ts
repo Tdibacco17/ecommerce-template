@@ -32,18 +32,17 @@ export async function POST(req: Request) {
                 status: payments.status,
                 status_detail: payments.status_detail
             }
-            // console.log(["[DATA]: ", objData ]) => DATOS AL EMAIL FACTURA
-            
+            console.log(["[DATA]: ", objData])  //enviar DATOS AL EMAIL FACTURA
+
             return NextResponse.json({
                 message: "Operation completed successfully.",
-                payments,
                 status: 200
             }, { status: 200 });
         } else {
             return NextResponse.json({
-                message: "Not data payment.",
-                status: 404
-            }, { status: 404 });
+                message: "Operation in progress.",
+                status: 200
+            }, { status: 200 });
         }
     } catch (error) {
         return NextResponse.json({

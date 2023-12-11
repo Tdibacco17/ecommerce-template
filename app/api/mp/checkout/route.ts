@@ -1,4 +1,4 @@
-import { ItemMpInterface } from '@/types/mpTypes';
+import { CartItemInterface } from '@/types/cartTypes';
 import MercadoPagoConfig, { Preference } from 'mercadopago';
 import { NextResponse } from 'next/server';
 
@@ -16,11 +16,11 @@ export async function POST(req: Request) {
 
         const response = await preference.create({
             body: {
-                items: itemsMp.map((itemMp: ItemMpInterface) => {
+                items: itemsMp.map((itemMp: CartItemInterface) => {
                     return {
-                        id: itemMp.slug,
-                        title: itemMp.name,
-                        unit_price: Number(itemMp.price),
+                        id: itemMp.productData.slug,
+                        title: itemMp.productData.name,
+                        unit_price: Number(itemMp.productData.price),
                         quantity: Number(itemMp.quantity)
                     }
                 }),
