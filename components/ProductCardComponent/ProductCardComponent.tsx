@@ -15,7 +15,7 @@ export default function ProductCardComponent({
             {productsData.details.description.map((item: string, index: number) => {
                 return <span key={index}>{item}</span>
             })}
-            <AddToCartBtnComponent productSlug={productsData.slug} />
+            <AddToCartBtnComponent productData={productsData} />
         </div>
     )
 }

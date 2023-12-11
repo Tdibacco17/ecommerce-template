@@ -5,7 +5,7 @@ export default function MpButtonComponent({
     handle,
     loading,
 }: {
-    handle: any,
+    handle: () => void,
     loading: boolean,
 }) {
     return (

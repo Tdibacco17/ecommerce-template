@@ -1,20 +1,17 @@
 'use client'
-import { ShoppingCartDataContextInterface } from "@/types/shoppingCartTypes";
 import styles from "./addToCartBtnComponent.module.scss"
-import { ShoppingCartContext } from "@/context/ShoppingCartContextProvider";
-import { useContext } from "react";
+import { useCart } from "@/hooks/useCart";
+import { ProductInterface } from "@/types/productsTypes";
 
 export default function AddToCartBtnComponent({
-    productSlug
+    productData
 }: {
-    productSlug: string
+    productData: ProductInterface
 }) {
-    const { handleCartItemsChange } = useContext(
-        ShoppingCartContext
-    ) as ShoppingCartDataContextInterface;
+    const { handleCartItemsChange } = useCart();
 
     return <button onClick={() => handleCartItemsChange({
-        slug: productSlug,
+        productData: productData,
         quantity: 1
     })}>
         Agregar al carrito

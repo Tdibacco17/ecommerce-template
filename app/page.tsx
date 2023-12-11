@@ -2,7 +2,7 @@ import ProductsComponent from "@/components/ProductsComponent/ProductsComponent"
 import MpButtonContainer from "@/containers/MpButtonContainer/MpButtonContainer"
 import NotificationMpContainer from "@/containers/NotificationMpContainer/NotificationMpContainer"
 import styles from "./page.module.scss"
-import ShoppingCartComponent from "@/components/ShoppingCartComponent/ShoppingCartComponent"
+import CartComponent from "@/components/CartComponent/CartComponent"
 
 export default function HomePage() {
   return (
@@ -10,7 +10,7 @@ export default function HomePage() {
       <ProductsComponent />
       <MpButtonContainer />
       <NotificationMpContainer />
-      <ShoppingCartComponent />
+      <CartComponent />
     </div>
   )
 }
