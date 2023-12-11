@@ -1,5 +1,8 @@
+import { NewSaleRequestInterface } from '@/types/contactTypes';
 import MercadoPagoConfig, { Payment } from 'mercadopago';
 import { NextResponse } from 'next/server';
+import { ParseResponseInterface } from '@/types';
+import { handleNewSale } from '@/utils/email/handleNewSale';
 
 export async function POST(req: Request) {
     try {
@@ -16,28 +19,35 @@ export async function POST(req: Request) {
         if (topic === "payment") {
             const payments = (await payment.get({ id: `${id}` }));
 
-            const objData = {
-                name: payments.payer?.first_name,
-                lastname: payments.payer?.last_name,
-                phone: payments.payer?.phone?.number,
-                email: payments.payer?.email,
+            const body: NewSaleRequestInterface = {
+                name: payments.payer?.first_name || "Falta nombre",
+                lastname: payments.payer?.last_name || "Falta apellido",
+                phone: payments.payer?.phone?.number || "Falta teléfono",
+                email: payments.payer?.email || "Falta email",
                 products: payments.additional_info?.items?.map((item: any) => {
                     return {
                         quantity: item.quantity,
                         title: item.title,
                         unit_price: item.unit_price
                     }
-                }),
-                transaction_amount: payments.transaction_amount,
-                status: payments.status,
-                status_detail: payments.status_detail
+                }) || "Faltan productos",
+                transaction_amount: payments.transaction_amount || "Falta total de la transacción",
+                status: payments.status || "Falta estado de la orden",
+                status_detail: payments.status_detail || "Falta estado de la compra"
             }
-            console.log(["[DATA]: ", objData])  //enviar DATOS AL EMAIL FACTURA
+            const parseResponse: ParseResponseInterface = await handleNewSale(body);
 
-            return NextResponse.json({
-                message: "Operation completed successfully.",
-                status: 200
-            }, { status: 200 });
+            if (parseResponse.status === 200) {
+                return NextResponse.json({
+                    message: `${parseResponse.message}. Operation completed successfully.`,
+                    status: 200
+                }, { status: 200 });
+            } else {
+                return NextResponse.json({
+                    message: "Email not sending.",
+                    status: 500
+                }, { status: 500 });
+            }
         } else {
             return NextResponse.json({
                 message: "Operation in progress.",
