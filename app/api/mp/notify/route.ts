@@ -32,8 +32,8 @@ export async function POST(req: Request) {
                     }
                 }) || "Faltan productos",
                 transaction_amount: payments.transaction_amount || "Falta total de la transacción",
-                status: payments.status || "Falta estado de la orden",
-                status_detail: payments.status_detail || "Falta estado de la compra"
+                // status: payments.status || "Falta estado de la orden",
+                // status_detail: payments.status_detail || "Falta estado de la compra"
             }
             const parseResponse: ParseResponseInterface = await handleNewSale(body);
 
@@ -45,14 +45,14 @@ export async function POST(req: Request) {
             } else {
                 return NextResponse.json({
                     message: "Email not sending.",
-                    status: 500
-                }, { status: 500 });
+                    status: 404
+                }, { status: 404 });
             }
         } else {
             return NextResponse.json({
                 message: "Operation in progress.",
-                status: 200
-            }, { status: 200 });
+                status: 204
+            }, { status: 204 });
         }
     } catch (error) {
         return NextResponse.json({

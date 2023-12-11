@@ -73,11 +73,14 @@ export const newSaletemplateHtml = (body: NewSaleRequestInterface) => {
             </table>
             
             <p><strong>Monto total de la Transacción:</strong> $${body.transaction_amount}</p>
-            <p><strong>Estado:</strong> ${body.status}</p>
-            <p><strong>Detalle del Estado:</strong> ${body.status_detail}</p>
         </div>
     </body>
     
     </html>
     `;
 };
+
+/*
+            <p><strong>Estado:</strong> ${body.status}</p>
+            <p><strong>Detalle del Estado:</strong> ${body.status_detail}</p>
+*/ 
