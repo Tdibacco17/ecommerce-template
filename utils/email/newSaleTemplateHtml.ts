@@ -37,7 +37,7 @@ export const newSaletemplateHtml = (body: NewSaleRequestInterface) => {
                 background-color: #f2f2f2;
                 font-weight: bold;
             }
-            h2, h3, p {
+            h2, h3, p, tr, td {
                 color: black;
             }
             strong {

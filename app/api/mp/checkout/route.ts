@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
     try {
-        const { itemsMp } = (await req.json());
+        const { cartData } = (await req.json());
 
         const URL = process.env.SITE_ULR;
 
@@ -16,12 +16,12 @@ export async function POST(req: Request) {
 
         const response = await preference.create({
             body: {
-                items: itemsMp.map((itemMp: CartItemInterface) => {
+                items: cartData.map((cartItem: CartItemInterface) => {
                     return {
-                        id: itemMp.productData.slug,
-                        title: itemMp.productData.name,
-                        unit_price: Number(itemMp.productData.price),
-                        quantity: Number(itemMp.quantity)
+                        id: cartItem.productData.slug,
+                        title: cartItem.productData.name,
+                        unit_price: Number(cartItem.productData.price),
+                        quantity: Number(cartItem.quantity)
                     }
                 }),
                 auto_return: "approved",

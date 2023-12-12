@@ -9,6 +9,6 @@ export interface NewSaleRequestInterface {
         unit_price: string
     }[] | string,
     transaction_amount: number | string,
-    // status: string,
-    // status_detail: string
+    status: string,
+    status_detail: string
 }

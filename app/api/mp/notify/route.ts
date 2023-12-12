@@ -32,22 +32,30 @@ export async function POST(req: Request) {
                     }
                 }) || "Faltan productos",
                 transaction_amount: payments.transaction_amount || "Falta total de la transacción",
-                // status: payments.status || "Falta estado de la orden",
-                // status_detail: payments.status_detail || "Falta estado de la compra"
+                status: payments.status || "Falta estado de la orden",
+                status_detail: payments.status_detail || "Falta estado de la compra"
             }
-            const parseResponse: ParseResponseInterface = await handleNewSale(body);
 
-            if (parseResponse.status === 200) {
-                return NextResponse.json({
-                    message: `${parseResponse.message}. Operation completed successfully.`,
-                    status: 200
-                }, { status: 200 });
-            } else {
-                return NextResponse.json({
-                    message: "Email not sending.",
-                    status: 404
-                }, { status: 404 });
+            if (body.status === "approved") {
+                const parseResponse: ParseResponseInterface = await handleNewSale(body);
+
+                if (parseResponse.status === 200) {
+                    //Hacer envio
+                    return NextResponse.json({
+                        message: `${parseResponse.message}. Operation completed successfully.`,
+                        status: 200
+                    }, { status: 200 });
+                } else {
+                    return NextResponse.json({
+                        message:`${parseResponse.message}.`,
+                        status: 404
+                    }, { status: 404 });
+                }
             }
+            return NextResponse.json({
+                message: `Payment not approved.`,
+                status: 204
+            }, { status: 204 });
         } else {
             return NextResponse.json({
                 message: "Operation in progress.",

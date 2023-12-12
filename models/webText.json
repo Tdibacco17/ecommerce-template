@@ -1,0 +1,22 @@
+{
+    "NavbarComponent": {
+        "logo": {
+            "title": "Logo",
+            "link": "/"
+        },
+        "navigation": {
+            "products": {
+                "title": "Productos",
+                "link": "/products"
+            },
+            "about": {
+                "title": "Nosotros",
+                "link": "/about"
+            },
+            "contact": {
+                "title": "Contacto",
+                "link": "/contact"
+            }
+        }
+    }
+}

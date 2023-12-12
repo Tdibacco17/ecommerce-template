@@ -12,6 +12,8 @@ export default function MpButtonContainer() {
     const router = useRouter()
 
     const handle = async () => {
+        if (cartData.length === 0) return
+
         setLoading(true)
         try {
             const rawData = await fetch("/api/mp/checkout", {
@@ -20,11 +22,11 @@ export default function MpButtonContainer() {
                     "Accept": "application/json, text/plain",
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ itemsMp: cartData })
+                body: JSON.stringify({ cartData: cartData })
             })
             const parseResponse: ParseResponseInterface = await rawData.json();
             //animacion de tiempo
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await new Promise(resolve => setTimeout(resolve, 1500));
 
             if (parseResponse.status === 500) {
                 console.log("[Error in the request to MP]:", parseResponse.message)
