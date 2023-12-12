@@ -1,6 +1,7 @@
 'use client'
 import NotificationMpComponent from "@/components/NotificationMpComponent/NotificationMpComponent";
 import { NotificationType } from "@/types/mpTypes";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function NotificationMpContainer() {
@@ -9,8 +10,9 @@ export default function NotificationMpContainer() {
         isOpen: false,
         type: null,
     });
+    const urlParams = useSearchParams()
+    
     useEffect(() => {
-        const urlParams = new URLSearchParams(window.location.search);
         const status = urlParams.get("status");
         if (status === "approved") {
             setNotification({

@@ -6,14 +6,17 @@
         },
         "navigation": {
             "products": {
+                "id": "products",
                 "title": "Productos",
                 "link": "/products"
             },
             "about": {
+                "id": "about",
                 "title": "Nosotros",
                 "link": "/about"
             },
             "contact": {
+                "id": "contact",
                 "title": "Contacto",
                 "link": "/contact"
             }

@@ -3,19 +3,30 @@ import styles from "./NavbarComponent.module.scss"
 import data from "@/models/webText.json"
 import Image from "next/image"
 import SidesMenuComponent from "../SidesMenuComponent/SidesMenuComponent"
+import { NavigationActiveType, NavigationInterface } from "@/types"
+import { useCart } from "@/hooks/useCart"
 
 export default function NavbarComponent({
     showMenu,
     showCart,
     handleShowMenu,
     handleShowCart,
+    menuRef,
+    cartRef,
+    pathSlug,
+    totalQuantity
 }: {
     showMenu: boolean,
     showCart: boolean,
     handleShowMenu: () => void,
     handleShowCart: () => void,
+    menuRef: React.RefObject<HTMLDivElement>;
+    cartRef: React.RefObject<HTMLDivElement>;
+    pathSlug: NavigationActiveType,
+    totalQuantity: number
 }
 ) {
+    const { cartData } = useCart();
     return (
         <section className={styles["section-navbar-container"]}>
             <div className={styles["wrapper"]}>
@@ -26,10 +37,10 @@ export default function NavbarComponent({
                         {data.NavbarComponent.logo.title}
                     </Link>
                     {
-                        Object.values(data.NavbarComponent.navigation).map((navItem: { title: string, link: string }, index: number) => {
+                        Object.values(data.NavbarComponent.navigation).map((navItem: NavigationInterface) => {
                             return <Link
-                                key={index}
-                                className={styles["item-nav"]}
+                                key={navItem.id}
+                                className={`${styles["item-nav"]} ${pathSlug === navItem.id && styles["active"]}`}
                                 href={`${navItem.link}`}>
                                 {navItem.title}
                             </Link>
@@ -52,6 +63,10 @@ export default function NavbarComponent({
                             width={25}
                             height={25}
                         />
+                        {cartData.length > 0 &&
+                            <div className={styles["badge"]}>
+                                <small>{totalQuantity}</small>
+                            </div>}
                     </div>
                     <div onClick={handleShowMenu} className={`${styles["icon-container"]} ${styles["mobile"]}`}>
                         <Image
@@ -68,6 +83,9 @@ export default function NavbarComponent({
                 showCart={showCart}
                 handleShowMenu={handleShowMenu}
                 handleShowCart={handleShowCart}
+                menuRef={menuRef}
+                cartRef={cartRef}
+                pathSlug={pathSlug}
             />
         </section>
     )

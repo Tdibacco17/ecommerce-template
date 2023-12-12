@@ -1,14 +1,14 @@
-import MpButtonContainer from "@/containers/MpButtonContainer/MpButtonContainer"
 import NotificationMpContainer from "@/containers/NotificationMpContainer/NotificationMpContainer"
 import styles from "./page.module.scss"
-import CartComponent from "@/components/CartComponent/CartComponent"
+import NavbarContainer from "@/containers/NavbarContainer/NavbarContainer"
 
 export default function HomePage() {
   return (
-    <div className={styles["home-page-container"]}>
-      <MpButtonContainer />
-      <NotificationMpContainer />
-      <CartComponent />
-    </div>
+    <>
+      <NavbarContainer pathSlug=""/>
+      <main id="top" className={styles["home-page-container"]}>
+        <NotificationMpContainer />
+      </main>
+    </>
   )
 }

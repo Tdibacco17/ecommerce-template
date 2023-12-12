@@ -8,7 +8,7 @@ export const CartContext = createContext<CartDataContextInterface | {}>({});
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     const [cartData, dispatch] = useReducer(reducer, initialState);
-    
+
     const handleStorageChange = (event: { key: string | null; }) => {
         if (event.key === 'cartItems') {
             dispatch({ type: 'CLEAR_CART' });
@@ -49,13 +49,18 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         dispatch({ type: 'CLEAR_CART' });
     };
 
+    const calculateTotalQuantity = (cartData: CartItemInterface[]) => {
+        return cartData.reduce((total, item) => total + item.quantity, 0);
+    };
+
     return (
         <CartContext.Provider
             value={{
                 cartData,
                 handleCartItemsChange,
                 handleRemoveCartItem,
-                handleClearCart
+                handleClearCart,
+                calculateTotalQuantity
             }}
         >
             {children}

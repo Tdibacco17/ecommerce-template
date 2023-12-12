@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { roboto } from '@/utils/fonts'
 import { CartProvider } from '@/context/CartContextProvider'
-import NavbarContainer from '@/containers/NavbarContainer/NavbarContainer'
 
 export const metadata: Metadata = {
   title: 'Ecommerce Template',
@@ -25,11 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <NavbarContainer />
         <CartProvider>
-          <main id="top">
-            {children}
-          </main>
+          {children}
         </CartProvider>
       </body>
     </html>

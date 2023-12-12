@@ -5,7 +5,8 @@ export interface CartDataContextInterface {
     cartData: CartItemInterface[];
     handleCartItemsChange: Function;
     handleRemoveCartItem: Function,
-    handleClearCart: Function
+    handleClearCart: Function,
+    calculateTotalQuantity: Function
 }
 //cart item
 export interface CartItemInterface {
