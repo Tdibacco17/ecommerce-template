@@ -6,8 +6,9 @@
     gap: 3rem;
     text-align: center;
     width: 30rem;
-    min-height: calc(100vh - 4rem);
-    max-height: calc(100vh - 4rem);
+    min-height: var(--total-vh);
+    height: var(--total-vh);
+    max-height: var(--total-vh);
     background-color: var(--white);
     padding: 3rem;
     border-left: 1px solid var(--border-color);

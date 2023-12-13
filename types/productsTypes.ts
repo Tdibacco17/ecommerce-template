@@ -9,6 +9,7 @@ export interface ProductInterface {
     slug: string,
     name: string,
     price: number,
+    oldPrice: number,
     discount: number,
     image: ImgDataInterface,
     isNewIn: boolean,

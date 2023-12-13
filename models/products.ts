@@ -5,6 +5,7 @@ export const productsData: ProductsDataInterface = {
         slug: "camisa-rayas",
         name: "Camisa a Rayas",
         price: 29.99,
+        oldPrice: 59.99,
         discount: 5,
         isNewIn: true,
         image: {
@@ -30,6 +31,7 @@ export const productsData: ProductsDataInterface = {
         slug: "sudadera-gris",
         name: "Sudadera Gris",
         price: 39.99,
+        oldPrice: 59.99,
         discount: 10,
         isNewIn: false,
         image: {
@@ -55,6 +57,7 @@ export const productsData: ProductsDataInterface = {
         slug: "top-black",
         name: "Top Negra",
         price: 19.99,
+        oldPrice: 49.99,
         discount: 0,
         isNewIn: false,
         image: {
@@ -80,6 +83,7 @@ export const productsData: ProductsDataInterface = {
         slug: "sportswear-set",
         name: "Conjunto Deportivo",
         price: 59.99,
+        oldPrice: 79.99,
         discount: 15,
         isNewIn: true,
         image: {

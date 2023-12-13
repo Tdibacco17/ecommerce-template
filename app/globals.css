@@ -18,6 +18,7 @@
   /* font sizes */
   --size-big: 1.75rem;
   --size-medium: 1rem;
+  --size-small: 0.85rem;
   /* font weight */
   --weight-medium: 400;
   --weight-bold: 500;
@@ -26,6 +27,9 @@
   --succes-color: #17c964;
   --failure-color: #f31260;
   --pending-color: #f5a524;
+  /* nav Height */
+  --nav-height: 4rem;
+  --total-vh: calc(100vh - var(--nav-height))
 }
 
 * {

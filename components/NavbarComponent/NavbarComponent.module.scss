@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 4rem;
+    height: var(--nav-height);
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -35,9 +35,7 @@
                 color: var(--light-gray);
 
                 &:hover {
-                    // border: 1px solid var(--border-color);
                     color: var(--black);
-                    // background-color: var(--bg-hover);
                 }
 
                 &.active {
@@ -66,7 +64,7 @@
                 border: 1px solid var(--border-color);
 
                 &:hover {
-                    background-color: var(--bg-card-hover);
+                    background-color: var(--white-hover);
                     border: 1px solid var(--border-color-hover);
                 }
 

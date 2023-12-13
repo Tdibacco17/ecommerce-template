@@ -1,10 +1,10 @@
 .spinner-container {
-    border: 3px solid #e2e2e2;
+    border: 2px solid var(--black);
     border-radius: 50%;
     border-left-color: white;
     animation: spin 0.8s ease infinite;
-    width: 20px;
-    height: 20px;
+    width: 1rem;
+    height: 1rem;
 }
 
 @keyframes spin {

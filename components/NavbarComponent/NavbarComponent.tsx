@@ -51,7 +51,7 @@ export default function NavbarComponent({
                     <div className={styles["icon-container"]}>
                         <Image
                             src={"/assets/svg/navbar/favorite.svg"}
-                            alt="Icono carrito"
+                            alt="Icono favorito"
                             width={25}
                             height={25}
                         />
@@ -71,7 +71,7 @@ export default function NavbarComponent({
                     <div onClick={handleShowMenu} className={`${styles["icon-container"]} ${styles["mobile"]}`}>
                         <Image
                             src={"/assets/svg/navbar/menu.svg"}
-                            alt="Icono carrito"
+                            alt="Icono menu hamburgesa"
                             width={25}
                             height={25}
                         />

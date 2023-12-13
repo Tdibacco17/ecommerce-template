@@ -1,16 +1,23 @@
 .column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
-    gap: 3rem;
+    gap: 2rem;
     text-align: center;
     width: 30rem;
-    min-height: 100vh;
-    max-height: 100vh;
+    min-height: var(--total-vh);
+    height: var(--total-vh);
+    max-height: var(--total-vh);
     background-color: var(--white);
-    padding: 3rem;
+    padding: 1rem;
     border-left: 1px solid var(--border-color);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+        background-color: transparent;
+    }
 
     @media (max-width:442px) {
         width: 100vw;
