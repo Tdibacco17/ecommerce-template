@@ -8,8 +8,8 @@
     display: flex;
     justify-content: center;
     padding: 0 2rem;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--white);
+    border-bottom: 1px solid var(--logo-border-color);
+    background-color: var(--logo-black);
     z-index: 3;
 
     .wrapper {
@@ -32,14 +32,14 @@
                 border: 1px solid transparent;
                 padding: 0.5rem;
                 border-radius: var(--border-radius);
-                color: var(--light-gray);
+                color: var(--logo-light-gray);
 
                 &:hover {
-                    color: var(--black);
+                    color: var(--logo-white);
                 }
 
                 &.active {
-                    color: var(--blue);
+                    color: var(--logo-blue);
                 }
 
                 @media (max-width:768px) {
@@ -56,16 +56,17 @@
             .icon-container {
                 position: relative;
                 cursor: pointer;
-                border-radius: var(--border-radius);
+                border-radius: var(--logo-border-radius);
                 padding: 0.5rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 1px solid var(--border-color);
+                border: 1px solid var(--logo-border-color);
+                background: transparent;
 
                 &:hover {
-                    background-color: var(--white-hover);
-                    border: 1px solid var(--border-color-hover);
+                    background-color: var(--logo-hover);
+                    border: 1px solid var(--logo-hover);
                 }
 
                 .badge {

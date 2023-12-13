@@ -29,7 +29,23 @@
   --pending-color: #f5a524;
   /* nav Height */
   --nav-height: 4rem;
-  --total-vh: calc(100vh - var(--nav-height))
+  --total-vh: calc(100vh - var(--nav-height));
+
+  /* paleta de colores */
+  --logo-black: #000;
+  --logo-white: #fff;
+  --logo-light-gray: #a1a1ab;
+  --logo-blue: #338ef7;
+  --logo-green: #18C964;
+
+  --logo-border-radius: calc(0.5rem - 2px);
+  
+  --logo-border-color: rgb(48, 48, 48);
+  --logo-hover: rgb(39, 39, 42);
+
+  --logo-success: #17c964;
+  --logo-failure: #f31260;
+  --logo-pending: #f5a524;
 }
 
 * {
@@ -52,8 +68,8 @@ body {
 body {
   padding: 0;
   margin: 0;
-  color: var(--black);
-  background: rgba(255, 255, 255, 0.8);
+  color: var(--logo-white);
+  background: var(--logo-black);
 }
 
 body::-webkit-scrollbar {
