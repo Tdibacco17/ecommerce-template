@@ -31,7 +31,7 @@ export default function SidesMenuComponent({
             </section>
             <section className={`${styles["side-menu-container"]} ${showCart && styles["active"]}`}>
                 <div className={styles["wrapper"]}>
-                    <CartMenuComponent handleShowCart={handleShowCart} cartRef={cartRef} pathSlug={pathSlug} />
+                        <CartMenuComponent handleShowCart={handleShowCart} cartRef={cartRef} pathSlug={pathSlug} />
                 </div>
             </section>
         </>

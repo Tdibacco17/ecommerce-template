@@ -5,13 +5,13 @@
     justify-content: flex-start;
     gap: 2rem;
     text-align: center;
-    width: 30rem;
+    width: 35rem;
     min-height: var(--total-vh);
     height: var(--total-vh);
     max-height: var(--total-vh);
-    background-color: var(--white);
+    background-color: var(--logo-black);
     padding: 1rem;
-    border-left: 1px solid var(--border-color);
+    border-left: 1px solid var(--logo-border-color);
     overflow-y: scroll;
 
     &::-webkit-scrollbar {

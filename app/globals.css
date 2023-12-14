@@ -35,17 +35,19 @@
   --logo-black: #000;
   --logo-white: #fff;
   --logo-light-gray: #a1a1ab;
-  --logo-blue: #338ef7;
+  --logo-blue: #74acfb;
   --logo-green: #18C964;
 
   --logo-border-radius: calc(0.5rem - 2px);
-  
-  --logo-border-color: rgb(48, 48, 48);
-  --logo-hover: rgb(39, 39, 42);
+
+  --logo-border-color: #303030;
+  --logo-hover: #1e1e1e;
 
   --logo-success: #17c964;
   --logo-failure: #f31260;
   --logo-pending: #f5a524;
+
+  --bg-overlay: rgba(0, 0, 0, 0.8);
 }
 
 * {
@@ -57,7 +59,6 @@
 html,
 body {
   max-width: 100vw;
-  min-height: 100vh;
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-family: var(--font-Roboto), var(--font-fallback);

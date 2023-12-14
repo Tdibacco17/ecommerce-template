@@ -63,10 +63,12 @@ export default function NavbarComponent({
                             width={25}
                             height={25}
                         />
-                        {cartData.length > 0 &&
+                        {
+                            cartData.length > 0 &&
                             <div className={styles["badge"]}>
                                 <small>{totalQuantity}</small>
-                            </div>}
+                            </div>
+                        }
                     </div>
                     <div onClick={handleShowMenu} className={`${styles["icon-container"]} ${styles["mobile"]}`}>
                         <Image

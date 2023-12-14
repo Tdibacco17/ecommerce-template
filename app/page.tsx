@@ -1,14 +1,17 @@
 import NotificationMpContainer from "@/containers/NotificationMpContainer/NotificationMpContainer"
 import styles from "./page.module.scss"
 import NavbarContainer from "@/containers/NavbarContainer/NavbarContainer"
+import { CartProvider } from "@/context/CartContextProvider"
 
 export default function HomePage() {
   return (
     <>
-      <NavbarContainer pathSlug=""/>
-      <main id="top" className={styles["home-page-container"]}>
+      <CartProvider>
+        <NavbarContainer pathSlug="" />
+      </CartProvider>
+      <div className={styles["home-page-container"]}>
         <NotificationMpContainer />
-      </main>
+      </div>
     </>
   )
 }

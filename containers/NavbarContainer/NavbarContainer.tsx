@@ -11,10 +11,11 @@ export default function NavbarContainer({
 }: {
     pathSlug: NavigationActiveType
 }) {
-    const { cartData, calculateTotalQuantity } = useCart();
+    const { calculateTotalQuantity, cartData } = useCart();
+
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [showCart, setShowCart] = useState<boolean>(false);
-    const [totalQuantity, setTotalQuantity] = useState(0);
+    const [totalQuantity, setTotalQuantity] = useState<number>(0);
 
     const handleShowMenu = () => {
         setShowCart(false)
@@ -38,7 +39,6 @@ export default function NavbarContainer({
         }
     }, [width])
 
-    // Calcula la cantidad total cuando cambia el carrito
     useEffect(() => {
         const newTotalQuantity = calculateTotalQuantity(cartData);
         setTotalQuantity(newTotalQuantity);

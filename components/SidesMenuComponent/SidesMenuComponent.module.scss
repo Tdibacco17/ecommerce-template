@@ -7,9 +7,7 @@
     min-height: var(--total-vh);
     height: var(--total-vh);
     max-height: var(--total-vh);
-    backdrop-filter: saturate(180%) blur(5px);
-    -webkit-backdrop-filter: saturate(180%) blur(5px);
-    background-color: transparent;
+    background-color: var(--bg-overlay);
 }
 
 .side-menu-container {
@@ -22,13 +20,15 @@
     height: var(--total-vh);
     max-height: var(--total-vh);
     pointer-events: none;
-    transition: right 0.35s ease-in-out;
+    transition: right 0.35s ease-in-out, opacity 0.35s ease-in-out;
     background-color: transparent;
+    opacity: 0;
+    display: block;
 
     &.active {
         right: 0;
         opacity: 1;
-        transition: right 0.35s ease-in-out;
+        transition: right 0.35s ease-in-out, opacity 0.35s ease-in-out;
     }
 
     .wrapper {
