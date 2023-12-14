@@ -25,7 +25,7 @@ export default function CartCardComponent({
                         <div className={styles["prices"]}>
                             <p>{`$${cartItem.productData.price}`}</p>
                             <p className={styles["old"]}>{`$${cartItem.productData.oldPrice}`}</p>
-                            {cartItem.productData.discount !== 0 && <p className={styles["discount"]}>{`${cartItem.productData.discount} % off`}</p>}
+                            {cartItem.productData.discount !== 0 && <p className={styles["discount"]}>{`${cartItem.productData.discount}% off`}</p>}
                         </div>
                     </div>
                     <div className={styles["btn-quantity-container"]}>

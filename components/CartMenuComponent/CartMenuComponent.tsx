@@ -18,14 +18,16 @@ export default function CartMenuComponent({
 
     return (
         <div className={styles["column"]} ref={cartRef}>
-            {cartData.length > 0 &&
-                cartData.map((cartItem: CartItemInterface) => {
-                    return <CartCardComponent
-                        key={cartItem.productData.slug}
-                        cartItem={cartItem}
+            <div className={styles["cart-items-container"]}>
+                {cartData.length > 0 &&
+                    cartData.map((cartItem: CartItemInterface) => {
+                        return <CartCardComponent
+                            key={cartItem.productData.slug}
+                            cartItem={cartItem}
 
-                    />
-                })}
+                        />
+                    })}
+            </div>
             {cartData.length > 0 ? (
                 <button onClick={() => handleClearCart()}>Limpiar carrito</button>
             ) : (
