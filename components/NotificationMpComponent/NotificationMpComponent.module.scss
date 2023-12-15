@@ -4,7 +4,7 @@
     right: 0;
     padding-right: 2rem;
     padding-bottom: 2rem;
-    color: var(--white);
+    color: var(--logo-white);
 
     animation-name: fade-in-out;
     animation-duration: 5s;
@@ -18,20 +18,19 @@
         gap: 1rem;
         height: 100%;
         padding: 1rem 1.25rem;
-        border-radius: var(--border-radius);
-        background-color: var(--gray);
+        border-radius: var(--logo-border-radius);
+        background-color: var(--logo-gray);
 
         &.approved {
-            border: 1px solid var(--succes-color);
+            border: 1px solid var(--logo-success);
         }
 
         &.failure {
-            border: 1px solid var(--failure-color);
+            border: 1px solid var(--logo-failure);
         }
 
-
         &.pending {
-            border: 1px solid var(--pending-color);
+            border: 1px solid var(--logo-pending);
         }
 
         .text {

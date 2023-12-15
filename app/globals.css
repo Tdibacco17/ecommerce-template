@@ -1,53 +1,39 @@
 :root {
-  --max-width: 1200px;
-  --calc-rem: calc(14px + (20.56 - 14) * ((100vw - 280px) / (3840 - 280)));
-  --font-fallback: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+  --logo-max-width: 1200px;
+  --logo-calc-rem: calc(14px + (20.56 - 14) * ((100vw - 280px) / (3840 - 280)));
+  
+  --logo-font-fallback: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  /* colores */
-  --white: #ffffff;
-  --black: #000000;
-  --light-gray: #666666;
-  --blue: #0072f5;
-  /* colores hover*/
-  --white-hover: #f2f2f2;
-  /* UI */
-  --border-color: rgb(0, 0, 0, 0.08);
-  --border-color-hover: rgb(0, 0, 0, 0.12);
-  --border-radius: 12px;
-  /* font sizes */
-  --size-big: 1.75rem;
-  --size-medium: 1rem;
-  --size-small: 0.85rem;
-  /* font weight */
-  --weight-medium: 400;
-  --weight-bold: 500;
-  /*notificaciones*/
-  --gray: #333333;
-  --succes-color: #17c964;
-  --failure-color: #f31260;
-  --pending-color: #f5a524;
-  /* nav Height */
-  --nav-height: 4rem;
-  --total-vh: calc(100vh - var(--nav-height));
 
-  /* paleta de colores */
   --logo-black: #000;
   --logo-white: #fff;
   --logo-light-gray: #a1a1ab;
   --logo-blue: #74acfb;
+  --logo-other-blue: #0070f0;
   --logo-green: #18C964;
-
-  --logo-border-radius: calc(0.5rem - 2px);
-
-  --logo-border-color: #303030;
-  --logo-hover: #1e1e1e;
-
+  --logo-gray: #333333;
   --logo-success: #17c964;
   --logo-failure: #f31260;
   --logo-pending: #f5a524;
 
-  --bg-overlay: rgba(0, 0, 0, 0.8);
+  --logo-border-radius: calc(0.5rem - 2px);
+  --logo-border-color: #303030;
+  --logo-border-color-hover: #1e1e1e;
+
+  --logo-size-tiny: 0.9rem;
+  --logo-size-small: 1.1rem;
+  --logo-size-intermediate: 1.25rem;
+  --logo-size-medium: 1.5rem;
+  --logo-size-big: 1.8rem;
+
+  --logo-weight-regular: 300;
+  --logo-weight-medium: 400;
+  --logo-weight-heavy: 500;
+  --logo-weight-bold: 700;
+  --logo-weight-extra-bold: 900;
+
+  --logo-bg-overlay: rgba(0, 0, 0, 0.8);
 }
 
 * {
@@ -61,9 +47,9 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  font-family: var(--font-Roboto), var(--font-fallback);
-  font-size: var(--calc-rem);
-  font-weight: var(--weight-medium);
+  font-family: var(--logo-font-Roboto), var(--logo-font-fallback);
+  font-size: var(--logo-calc-rem);
+  font-weight: var(--logo-weight-regular);
 }
 
 body {

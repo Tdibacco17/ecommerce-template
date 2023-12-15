@@ -9,14 +9,8 @@
     background-color: var(--logo-black);
     padding: 1rem;
     border-left: 1px solid var(--logo-border-color);
-    overflow-y: scroll;
 
-    &::-webkit-scrollbar {
-        // width: 0px;
-        background-color: transparent;
-    }
-
-    @media (max-width:442px) {
+    @media (max-width:500px) {
         width: 100vw;
     }
 
@@ -27,6 +21,68 @@
         justify-content: flex-start;
         width: 100%;
         height: 100%;
+        overflow-y: scroll;
+
+        &.empty {
+            justify-content: center;
+            align-items: center;
+        }
+
+        &::-webkit-scrollbar {
+            width: 0px;
+            background-color: transparent;
+        }
+
+        .cart-msg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--logo-light-gray);
+            font-size: var(--logo-size-small);
+            font-weight: var(--logo-weight-medium);
+
+            .item-nav {
+                color: var(--logo-blue);
+                text-shadow: 0 0 0.5px var(--logo-blue);
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--logo-other-blue);
+                }
+            }
+        }
+    }
+
+    .cart-footer {
         border-top: 1px solid var(--logo-border-color);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 1rem;
+        gap: 1rem;
+        font-size: var(--logo-size-small);
+
+        .title-item {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-weight: var(--logo-weight-medium);
+        }
+
+        .btn-cart {
+            background-color: var(--logo-white);
+            color: var(--logo-black);
+            font-weight: var(--logo-weight-bold);
+            border-radius: var(--logo-border-radius);
+            width: 100%;
+            padding: 0.3rem 0;
+            text-align: center;
+            opacity: 1;
+
+            &:hover {
+                opacity: 0.85;
+            }
+        }
     }
 }

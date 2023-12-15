@@ -6,30 +6,28 @@
     gap: 3rem;
     text-align: center;
     width: 30rem;
-    min-height: var(--total-vh);
-    height: var(--total-vh);
-    max-height: var(--total-vh);
-    background-color: var(--white);
+    min-height: 100%;
+    background-color: var(--logo-black);
     padding: 3rem;
-    border-left: 1px solid var(--border-color);
+    border-left: 1px solid var(--logo-border-color);
 
     @media (max-width:442px) {
         width: 100vw;
     }
 
     .item-nav {
-        font-size: var(--size-medium);
-        border: 1px solid transparent;
+        font-size: var(--logo-size-small);
+        font-weight: var(--logo-weight-medium);
         padding: 0.5rem;
-        border-radius: var(--border-radius);
-        color: var(--light-gray);
+        color: var(--logo-light-gray);
 
         &:hover {
-            color: var(--black);
+            color: var(--logo-white);
         }
 
         &.active {
-            color: var(--blue);
+            color: var(--logo-blue);
+            text-shadow: 0 0 0.5px var(--logo-blue);
         }
     }
 }

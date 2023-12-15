@@ -3,13 +3,17 @@ import styles from "./CartCardComponent.module.scss"
 import { useCart } from "@/hooks/useCart";
 import { CartItemInterface } from "@/types/cartTypes";
 export default function CartCardComponent({
-    cartItem
+    cartItem,
+    isFirstCard,
+    isFinalCard
 }: {
-    cartItem: CartItemInterface
+    cartItem: CartItemInterface,
+    isFirstCard: boolean,
+    isFinalCard: boolean
 }) {
     const { handleCartItemsChange, handleRemoveCartItem } = useCart();
     return (
-        <div key={cartItem.productData.slug} className={styles["item-cart-container"]}>
+        <div key={cartItem.productData.slug} className={`${styles["item-cart-container"]} ${isFirstCard && styles["first-card"]} ${isFinalCard && styles["final-card"]}`}>
             <div className={styles["outer-img-container"]}>
                 <Image
                     src={cartItem.productData.image.imgSrc}
@@ -20,14 +24,17 @@ export default function CartCardComponent({
             </div>
             <div className={styles["wrapper"]}>
                 <div className={styles["info-container"]}>
-                    <div className={styles["details"]}>
+                    <div className={styles["header"]}>
                         <p className={styles["name"]}>{cartItem.productData.name}</p>
-                        <div className={styles["prices"]}>
-                            <p>{`$${cartItem.productData.price}`}</p>
-                            <p className={styles["old"]}>{`$${cartItem.productData.oldPrice}`}</p>
-                            {cartItem.productData.discount !== 0 && <p className={styles["discount"]}>{`${cartItem.productData.discount}% off`}</p>}
-                        </div>
+                        <small className={styles["categorie"]}>{cartItem.productData.categorieTitle}</small>
                     </div>
+                    <div className={styles["prices"]}>
+                        <p>{`$${cartItem.productData.price}`}</p>
+                        <p className={styles["old"]}>{`$${cartItem.productData.oldPrice}`}</p>
+                        {cartItem.productData.discount !== 0 && <p className={styles["discount"]}>{`${cartItem.productData.discount}% off`}</p>}
+                    </div>
+                </div>
+                <div className={styles["btns-container"]}>
                     <div className={styles["btn-quantity-container"]}>
                         <button
                             className={`${styles["btn"]} ${styles["left"]}`}
@@ -36,33 +43,31 @@ export default function CartCardComponent({
                             <Image
                                 src={"/assets/svg/cart/remove.svg"}
                                 alt="Icono restar"
-                                width={20}
-                                height={20}
+                                width={22}
+                                height={22}
                             />
                         </button>
-                        <p>{cartItem.quantity}</p>
+                        <p className={`${styles["quantity"]} ${cartItem.quantity === 1 && styles["border-left"]}`}>{cartItem.quantity}</p>
                         <button
                             className={`${styles["btn"]} ${styles["right"]}`}
                             onClick={() => handleCartItemsChange({ productData: cartItem.productData, quantity: 1 })}>
                             <Image
                                 src={"/assets/svg/cart/add.svg"}
                                 alt="Icono suamr"
-                                width={20}
-                                height={20}
+                                width={22}
+                                height={22}
                             />
                         </button>
                     </div>
+                    <button className={styles["btn-remove"]} onClick={() => handleRemoveCartItem(cartItem.productData)}>
+                        <Image
+                            src={"/assets/svg/cart/trash.svg"}
+                            alt="Icono suamr"
+                            width={16}
+                            height={16}
+                        />
+                    </button>
                 </div>
-                <button
-                    className={styles["btn-remove"]}
-                    onClick={() => handleRemoveCartItem(cartItem.productData)}>
-                    <Image
-                        src={"/assets/svg/cart/trash.svg"}
-                        alt="Icono suamr"
-                        width={20}
-                        height={20}
-                    />
-                </button>
             </div>
         </div>
     )

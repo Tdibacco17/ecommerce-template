@@ -8,6 +8,7 @@ export interface ProductsDataInterface {
 export interface ProductInterface {
     slug: string,
     name: string,
+    categorieTitle: CategorieTitle,
     price: number,
     oldPrice: number,
     discount: number,
@@ -28,3 +29,5 @@ export type CategoriesFilterInterface =
     | "top"
     | "sportswear"
     | "outstanding";
+
+export type CategorieTitle= "Remera" | "Sudadera" | "Top" | "Ropa deportiva" 

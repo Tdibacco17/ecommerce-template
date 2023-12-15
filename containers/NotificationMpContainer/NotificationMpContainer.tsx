@@ -14,6 +14,7 @@ export default function NotificationMpContainer() {
     
     useEffect(() => {
         const status = urlParams.get("status");
+
         if (status === "approved") {
             setNotification({
                 content: "Pago aprobado!",
@@ -43,7 +44,7 @@ export default function NotificationMpContainer() {
                 type: null,
             });
         }, 5000);
-    }, []);
+    }, [urlParams]);
 
     return <NotificationMpComponent notification={notification} />
 }
