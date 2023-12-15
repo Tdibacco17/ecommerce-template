@@ -31,7 +31,7 @@ export default function CartMenuComponent({
                         })
                     ) : (
                         <div className={styles["cart-msg"]}>
-                            <p>Tu carrito esta vacio</p>
+                            <p>Tu carrito esta vacío</p>
                             {pathSlug === "products" ?
                                 <p className={styles["item-nav"]}
                                     onClick={handleShowCart}>

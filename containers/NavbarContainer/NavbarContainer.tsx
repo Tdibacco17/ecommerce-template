@@ -4,7 +4,7 @@ import { useCart } from "@/hooks/useCart";
 import useOutsideClick from "@/hooks/useOutSideClick";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { NavigationActiveType } from "@/types";
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 export default function NavbarContainer({
     pathSlug
@@ -12,19 +12,23 @@ export default function NavbarContainer({
     pathSlug: NavigationActiveType
 }) {
     const { calculateTotalQuantity, cartData } = useCart();
-
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [showCart, setShowCart] = useState<boolean>(false);
     const [totalQuantity, setTotalQuantity] = useState<number>(0);
+    const { width } = useWindowSize();
 
-    const handleShowMenu = () => {
+    const handleShowMenu = useCallback(() => {
+        console.log("Toggling showMenu");
         setShowCart(false)
-        setShowMenu(!showMenu)
-    }
-    const handleShowCart = () => {
+        setShowMenu((prevShowMenu) => !prevShowMenu);
+    }, [showMenu])
+
+    const handleShowCart = useCallback(() => {
+        console.log("Toggling showCart");
         setShowMenu(false)
-        setShowCart(!showCart)
-    }
+        setShowCart((prevShowCart) => !prevShowCart);
+    }, [showCart])
+
     const menuRef = useOutsideClick(() => {
         setShowMenu(false)
     });
@@ -32,7 +36,6 @@ export default function NavbarContainer({
         setShowCart(false)
     });
 
-    const { width } = useWindowSize();
     useEffect(() => {
         if (width > 768) {
             setShowMenu(false)
@@ -43,6 +46,20 @@ export default function NavbarContainer({
         const newTotalQuantity = calculateTotalQuantity(cartData);
         setTotalQuantity(newTotalQuantity);
     }, [cartData]);
+
+    useEffect(() => {
+        return () => {
+            document.body.classList.remove('no-scroll');
+        };
+    }, []);
+
+    useEffect(() => {
+        document.body.classList.toggle('no-scroll', showMenu || showCart);
+        return () => {
+            document.body.classList.remove('no-scroll');
+        };
+    }, [showMenu, showCart]);
+
 
     return <NavbarComponent
         showMenu={showMenu}

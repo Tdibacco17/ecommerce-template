@@ -40,12 +40,12 @@
             gap: 0.5rem;
             color: var(--logo-light-gray);
             font-size: var(--logo-size-small);
-            font-weight: var(--logo-weight-medium);
 
             .item-nav {
                 color: var(--logo-blue);
                 text-shadow: 0 0 0.5px var(--logo-blue);
                 cursor: pointer;
+                font-weight: var(--logo-weight-bold);
 
                 &:hover {
                     color: var(--logo-other-blue);
@@ -67,7 +67,7 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            font-weight: var(--logo-weight-medium);
+            font-weight: var(--logo-weight-bold);
         }
 
         .btn-cart {

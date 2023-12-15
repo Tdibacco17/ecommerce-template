@@ -29,7 +29,7 @@ export default function CartCardComponent({
                         <small className={styles["categorie"]}>{cartItem.productData.categorieTitle}</small>
                     </div>
                     <div className={styles["prices"]}>
-                        <p>{`$${cartItem.productData.price}`}</p>
+                        <p className={styles["price"]}>{`$${cartItem.productData.price}`}</p>
                         <p className={styles["old"]}>{`$${cartItem.productData.oldPrice}`}</p>
                         {cartItem.productData.discount !== 0 && <p className={styles["discount"]}>{`${cartItem.productData.discount}% off`}</p>}
                     </div>

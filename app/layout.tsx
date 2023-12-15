@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { roboto } from '@/utils/fonts'
+import { inter } from '@/utils/fonts'
 
 export const metadata: Metadata = {
   title: 'Ecommerce Template',
@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={inter.className}>
         <main id="top">
           {children}
         </main>

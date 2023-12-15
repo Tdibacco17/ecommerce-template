@@ -17,21 +17,21 @@ export default function NotificationMpContainer() {
 
         if (status === "approved") {
             setNotification({
-                content: "Pago aprobado!",
+                content: "Pago aprobado",
                 isOpen: true,
                 type: "approved",
             });
         }
         if (status === "failure") {
             setNotification({
-                content: "Pago fallido!",
+                content: "Pago fallido",
                 isOpen: true,
                 type: "failure",
             });
         }
         if (status === "pending") {
             setNotification({
-                content: "Pago pendiente!",
+                content: "Pago pendiente",
                 isOpen: true,
                 type: "pending",
             });

@@ -1,10 +1,10 @@
-import { Roboto } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
-export const roboto = Roboto({
+export const inter = Inter({
     subsets: ['latin'],
-    weight: ['300', '400', '500', '700', '900'],
+    weight: ['400', '600'],
     style: 'normal',
     preload: true,
-    variable: '--logo-font-Roboto',
+    variable: '--logo-font-Inter',
     display: 'swap'
 })

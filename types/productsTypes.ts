@@ -28,6 +28,8 @@ export type CategoriesFilterInterface =
     | "sweatshirts"
     | "top"
     | "sportswear"
+    | "bottoms"
+    | "dresses"
     | "outstanding";
 
-export type CategorieTitle= "Remera" | "Sudadera" | "Top" | "Ropa deportiva" 
+export type CategorieTitle = "Remera" | "Sudadera" | "Top" | "Ropa deportiva" | "Pantalones" | "Vestido"

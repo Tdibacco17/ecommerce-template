@@ -1,7 +1,7 @@
 :root {
   --logo-max-width: 1200px;
   --logo-calc-rem: calc(14px + (20.56 - 14) * ((100vw - 280px) / (3840 - 280)));
-  
+
   --logo-font-fallback: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
@@ -20,20 +20,28 @@
   --logo-border-radius: calc(0.5rem - 2px);
   --logo-border-color: #303030;
   --logo-border-color-hover: #1e1e1e;
+  /* 
+1.25rem = 20px. titulo card, 
+1.125rem = 18px. precio
+1 = 16px. item-nav, textos claros, precio tachado y descuento
+0.875rem = 14px. texto botones 
+0.75 = 12px. 
 
-  --logo-size-tiny: 0.9rem;
-  --logo-size-small: 1.1rem;
-  --logo-size-intermediate: 1.25rem;
-  --logo-size-medium: 1.5rem;
+peso
+600 titulos card, precio , prcio tachado 
+400 texto normal, descuento, texto botones 
+
+*/
+  --logo-size-tiny: 14px;
+  --logo-size-small: 16px;
+  --logo-size-intermediate: 18px;
+  --logo-size-medium: 20px;
   --logo-size-big: 1.8rem;
 
-  --logo-weight-regular: 300;
-  --logo-weight-medium: 400;
-  --logo-weight-heavy: 500;
-  --logo-weight-bold: 700;
-  --logo-weight-extra-bold: 900;
+  --logo-weight-regular: 400;
+  --logo-weight-bold: 600;
 
-  --logo-bg-overlay: rgba(0, 0, 0, 0.8);
+  --logo-bg-overlay: rgba(0, 0, 0, 0.7);
 }
 
 * {
@@ -47,7 +55,7 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  font-family: var(--logo-font-Roboto), var(--logo-font-fallback);
+  font-family: var(--logo-font-Inter), var(--logo-font-fallback);
   font-size: var(--logo-calc-rem);
   font-weight: var(--logo-weight-regular);
 }
@@ -67,4 +75,8 @@ body::-webkit-scrollbar {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.no-scroll {
+  max-height: 100vh;
 }
