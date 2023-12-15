@@ -24,7 +24,7 @@ export default function MpButtonComponent({
                         {cartData.length === 0 ? (
                             <Link className={`${styles["btn-mp"]}`} href={"/products"}>Ver productos</Link>
                         ) : (
-                            <button onClick={handle}
+                            <button /*onClick={handle} */
                                 disabled={loading}
                                 className={`${styles["btn-mp"]} ${loading && styles["disabled"]}`}>
                                 Comprar

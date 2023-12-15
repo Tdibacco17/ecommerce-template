@@ -3,7 +3,7 @@ import styles from "./CartMenuComponent.module.scss"
 import { CartItemInterface } from "@/types/cartTypes";
 import Link from "next/link";
 import { NavigationActiveType } from "@/types";
-import CartCardComponent from "./CartCardComponent/CartCardComponent";
+import CartCardContainer from "@/containers/CartCardContainer/CartCardContainer";
 
 export default function CartMenuComponent({
     handleShowCart,
@@ -22,7 +22,7 @@ export default function CartMenuComponent({
                 {
                     cartData.length > 0 ? (
                         cartData.map((cartItem: CartItemInterface, index: number) => {
-                            return <CartCardComponent
+                            return <CartCardContainer
                                 key={cartItem.productData.slug}
                                 cartItem={cartItem}
                                 isFirstCard={0 === index}
