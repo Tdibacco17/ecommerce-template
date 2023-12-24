@@ -54,48 +54,6 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-
-            .icon-container {
-                position: relative;
-                cursor: pointer;
-                border-radius: var(--logo-border-radius);
-                padding: 0.5rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border: 1px solid var(--logo-border-color);
-                background: transparent;
-
-                &:hover {
-                    background-color: var(--logo-border-color-hover);
-                    border: 1px solid var(--logo-border-color-hover);
-                }
-
-                .badge {
-                    position: absolute;
-                    top: -5px;
-                    right: -5px;
-                    border-radius: 99px;
-                    height: 1rem;
-                    width: 1rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: var(--logo-other-blue);
-                    color: var(--logo-white);
-                    font-weight: var(--logo-weight-bold);
-                    font-size: var(--logo-size-tiny);
-                    border: none;
-                }
-
-                &.mobile {
-                    display: none;
-
-                    @media (max-width:768px) {
-                        display: flex;
-                    }
-                }
-            }
         }
     }
 }

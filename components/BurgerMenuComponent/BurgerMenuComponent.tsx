@@ -2,15 +2,19 @@ import Link from "next/link"
 import styles from "./BurgerMenuComponent.module.scss"
 import { NavigationActiveType, NavigationInterface } from "@/types"
 import data from "@/models/webText.json"
+
 export default function BurgerMenuComponent({
     menuRef,
     pathSlug,
-    handleShowMenu
+    handleShowMenu,
+    session
 }: {
     menuRef: React.RefObject<HTMLDivElement>,
     pathSlug: NavigationActiveType,
-    handleShowMenu: () => void
+    handleShowMenu: () => void,
+    session: any
 }) {
+
     return (
         <div className={styles["column"]} ref={menuRef}>
             {Object.values(data.NavbarComponent.navigation).map((navItem: NavigationInterface) => {
@@ -22,6 +26,11 @@ export default function BurgerMenuComponent({
                     {navItem.title}
                 </Link>
             })}
+            {session && <Link
+                className={`${styles["item-nav"]} ${pathSlug === "dashboard" && styles["active"]}`}
+                href={`/dashboard`}>
+                Dashboard
+            </Link>}
         </div>
     )
 }

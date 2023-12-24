@@ -19,4 +19,4 @@ export interface NavigationInterface {
     title: string,
     link: string
 }
-export type NavigationActiveType = "products" | "about" | "contact" | "cart" |""
+export type NavigationActiveType = "products" | "about" | "contact" | "cart" | "dashboard" |""

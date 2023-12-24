@@ -1,0 +1,16 @@
+.icon-container {
+    position: relative;
+    cursor: pointer;
+    border-radius: var(--logo-border-radius);
+    padding: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--logo-border-color);
+    background: transparent;
+
+    &:hover {
+        background-color: var(--logo-border-color-hover);
+        border: 1px solid var(--logo-border-color-hover);
+    }
+}

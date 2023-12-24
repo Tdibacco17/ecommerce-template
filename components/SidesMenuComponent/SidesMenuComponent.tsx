@@ -10,7 +10,8 @@ export default function SidesMenuComponent({
     handleShowCart,
     menuRef,
     cartRef,
-    pathSlug
+    pathSlug,
+    session
 }: {
     showMenu: boolean,
     showCart: boolean,
@@ -18,7 +19,8 @@ export default function SidesMenuComponent({
     handleShowCart: () => void,
     menuRef: React.RefObject<HTMLDivElement>,
     cartRef: React.RefObject<HTMLDivElement>,
-    pathSlug: NavigationActiveType
+    pathSlug: NavigationActiveType,
+    session: any
 }) {
     return (
         <>
@@ -26,12 +28,12 @@ export default function SidesMenuComponent({
                 <div className={styles['overlay-menu-container']} />}
             <section className={`${styles["side-menu-container"]} ${showMenu && styles["active"]}`}>
                 <div className={styles["wrapper"]}>
-                    <BurgerMenuComponent menuRef={menuRef} handleShowMenu={handleShowMenu} pathSlug={pathSlug} />
+                    <BurgerMenuComponent session={session} menuRef={menuRef} handleShowMenu={handleShowMenu} pathSlug={pathSlug} />
                 </div>
             </section>
             <section className={`${styles["side-menu-container"]} ${showCart && styles["active"]}`}>
                 <div className={styles["wrapper"]}>
-                        <CartMenuComponent handleShowCart={handleShowCart} cartRef={cartRef} pathSlug={pathSlug} />
+                    <CartMenuComponent handleShowCart={handleShowCart} cartRef={cartRef} pathSlug={pathSlug} />
                 </div>
             </section>
         </>

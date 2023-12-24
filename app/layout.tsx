@@ -1,3 +1,4 @@
+import Providers from "../context/AuthProvider";
 import type { Metadata } from 'next'
 import './globals.css'
 import { inter } from '@/utils/fonts'
@@ -23,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main id="top">
-          {children}
-        </main>
+        <Providers>
+          <main id="top">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   )

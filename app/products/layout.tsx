@@ -1,3 +1,4 @@
+import NavbarComponent from "@/components/NavbarComponent/NavbarComponent";
 import { CartProvider } from "@/context/CartContextProvider";
 
 export default function CartLayout({
@@ -6,8 +7,11 @@ export default function CartLayout({
     children: React.ReactNode,
 }) {
     return (
-        <CartProvider>
+        <>
+            <CartProvider>
+                <NavbarComponent pathSlug="products" />
+            </CartProvider>
             {children}
-        </CartProvider>
+        </>
     )
 }

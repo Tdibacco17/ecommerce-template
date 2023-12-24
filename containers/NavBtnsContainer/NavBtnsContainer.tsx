@@ -1,15 +1,17 @@
 'use client'
-import NavbarComponent from "@/components/NavbarComponent/NavbarComponent";
+import NavBtnsComponent from "@/components/NavbarComponent/NavBtnsComponent/NavBtnsComponent";
 import { useCart } from "@/hooks/useCart";
 import useOutsideClick from "@/hooks/useOutSideClick";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import { NavigationActiveType } from "@/types";
 import { useCallback, useEffect, useState } from "react"
 
-export default function NavbarContainer({
-    pathSlug
+export default function NavBtnsContainer({
+    pathSlug,
+    session
 }: {
-    pathSlug: NavigationActiveType
+    pathSlug: NavigationActiveType,
+    session: any
 }) {
     const { calculateTotalQuantity, cartData } = useCart();
     const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -18,13 +20,11 @@ export default function NavbarContainer({
     const { width } = useWindowSize();
 
     const handleShowMenu = useCallback(() => {
-        console.log("Toggling showMenu");
         setShowCart(false)
         setShowMenu((prevShowMenu) => !prevShowMenu);
     }, [showMenu])
 
     const handleShowCart = useCallback(() => {
-        console.log("Toggling showCart");
         setShowMenu(false)
         setShowCart((prevShowCart) => !prevShowCart);
     }, [showCart])
@@ -60,8 +60,7 @@ export default function NavbarContainer({
         };
     }, [showMenu, showCart]);
 
-
-    return <NavbarComponent
+    return <NavBtnsComponent
         showMenu={showMenu}
         showCart={showCart}
         handleShowMenu={handleShowMenu}
@@ -70,5 +69,6 @@ export default function NavbarContainer({
         cartRef={cartRef}
         pathSlug={pathSlug}
         totalQuantity={totalQuantity}
+        session={session}
     />
 }

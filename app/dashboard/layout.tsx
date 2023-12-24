@@ -7,9 +7,11 @@ export default function CartLayout({
     children: React.ReactNode,
 }) {
     return (
-        <CartProvider>
-            <NavbarComponent pathSlug="cart" />
+        <>
+            <CartProvider>
+                <NavbarComponent pathSlug="dashboard" />
+            </CartProvider>
             {children}
-        </CartProvider>
+        </>
     )
 }
