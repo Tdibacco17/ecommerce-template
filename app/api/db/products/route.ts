@@ -1,10 +1,19 @@
-import connectDB from "@/utils/connection";
+// import connectDB from "@/utils/connection";
+import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
+import { authOptions } from "../../auth/[...nextauth]/route";
 
-export function GET() {
-    connectDB()
+export async function GET() {
+    const session = await getServerSession(authOptions)
+    // connectDB()
+
+    if(!session){
+        return NextResponse.json({
+            message: "You must be logged in."
+        })
+    }
     
     return NextResponse.json({
-        message: "get all"
+        message: "Success"
     })
 }
