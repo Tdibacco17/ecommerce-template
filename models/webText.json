@@ -20,6 +20,26 @@
                 "title": "Contacto",
                 "link": "/contact"
             }
+        },
+        "dashboard": {
+            "id": "dashboard",
+            "title": "Dashboard",
+            "link": "/dashboard"
+        }
+    },
+    "CartMenuComponent": {
+        "empty": "Tu carrito esta vacío.",
+        "emptyMsg": "Elegí algún producto",
+        "emptyRedirect": {
+            "link": "/products",
+            "title": "Ver productos"
+        },
+        "send": "Envío",
+        "free": "Gratis",
+        "total": "Total",
+        "cart": {
+            "link": "/cart",
+            "title": "Ir al carrito"
         }
     }
 }

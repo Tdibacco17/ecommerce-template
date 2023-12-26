@@ -4,7 +4,7 @@ import styles from "./CartComponent.module.scss"
 import { useCart } from "@/hooks/useCart";
 
 export default function CartComponent() {
-    const { cartData, handleCartItemsChange, handleRemoveCartItem, handleClearCart } = useCart();
+    const { cartData = [], handleCartItemsChange, handleRemoveCartItem, handleClearCart } = useCart();
     return (
         <section className={styles["section-cart-container"]}>
             <div className={styles["table-container"]}>
@@ -32,10 +32,8 @@ export default function CartComponent() {
                     })}
             </div>
             <br></br>
-            {
-                cartData.length > 0 &&
-                <button onClick={() => handleClearCart()}>Limpiar carrito </button>
-            }
+            {cartData.length > 0 &&
+                <button onClick={() => handleClearCart()}>Limpiar carrito </button>}
         </section>
     )
 }

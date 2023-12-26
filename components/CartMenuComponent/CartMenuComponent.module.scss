@@ -39,13 +39,12 @@
             align-items: center;
             gap: 0.5rem;
             color: var(--logo-light-gray);
-            font-size: var(--logo-size-small);
+            font-size: var(--logo-size-16);
 
             .item-nav {
                 color: var(--logo-blue);
                 text-shadow: 0 0 0.5px var(--logo-blue);
                 cursor: pointer;
-                font-weight: var(--logo-weight-bold);
 
                 &:hover {
                     color: var(--logo-other-blue);
@@ -61,19 +60,17 @@
         flex-direction: column;
         padding-top: 1rem;
         gap: 1rem;
-        font-size: var(--logo-size-small);
+        font-size: var(--logo-size-16);
 
         .title-item {
             width: 100%;
             display: flex;
             justify-content: space-between;
-            font-weight: var(--logo-weight-bold);
         }
 
         .btn-cart {
             background-color: var(--logo-white);
             color: var(--logo-black);
-            font-weight: var(--logo-weight-bold);
             border-radius: var(--logo-border-radius);
             width: 100%;
             padding: 0.3rem 0;

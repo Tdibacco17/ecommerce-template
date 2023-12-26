@@ -13,10 +13,11 @@ export default function NavBtnsContainer({
     pathSlug: NavigationActiveType,
     session: any
 }) {
-    const { calculateTotalQuantity, cartData } = useCart();
+    const { calculateTotalQuantity, cartData = [], calculateTotalPrice } = useCart();
     const [showMenu, setShowMenu] = useState<boolean>(false);
     const [showCart, setShowCart] = useState<boolean>(false);
     const [totalQuantity, setTotalQuantity] = useState<number>(0);
+    const [totalPrice, setTotalPrice] = useState<string>("0.00");
     const { width } = useWindowSize();
 
     const handleShowMenu = useCallback(() => {
@@ -45,7 +46,10 @@ export default function NavBtnsContainer({
     useEffect(() => {
         const newTotalQuantity = calculateTotalQuantity(cartData);
         setTotalQuantity(newTotalQuantity);
-    }, [cartData]);
+
+        const newTotalPrice = calculateTotalPrice(cartData).toFixed(2);
+        setTotalPrice(newTotalPrice);
+    }, [cartData, calculateTotalPrice]);
 
     useEffect(() => {
         return () => {
@@ -69,6 +73,7 @@ export default function NavBtnsContainer({
         cartRef={cartRef}
         pathSlug={pathSlug}
         totalQuantity={totalQuantity}
+        totalPrice={totalPrice}
         session={session}
     />
 }

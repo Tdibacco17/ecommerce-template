@@ -11,6 +11,7 @@ export default function CartCardContainer({
     isFirstCard: boolean,
     isFinalCard: boolean
 }) {
+    //armar logica.. de momento no hace nada
     const [itemFav, setItemFav] = useState(false)
 
     const handleItemFav = () => {

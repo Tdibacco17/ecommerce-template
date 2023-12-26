@@ -32,14 +32,17 @@ peso
 400 texto normal, descuento, texto botones 
 
 */
-  --logo-size-tiny: 14px;
-  --logo-size-small: 16px;
-  --logo-size-intermediate: 18px;
-  --logo-size-medium: 20px;
-  --logo-size-big: 1.8rem;
+  --logo-size-12: 12px;
+  --logo-size-14: 14px;
+  --logo-size-16: 16px;
+  --logo-size-18: 18px;
+  --logo-size-20: 20px;
+  --logo-size-28: 28px;
 
-  --logo-weight-regular: 400;
-  --logo-weight-bold: 600;
+  --logo-weight-300: 300;
+  --logo-weight-400: 400;
+  --logo-weight-500: 500;
+  --logo-weight-600: 600;
 
   --logo-bg-overlay: rgba(0, 0, 0, 0.7);
 }
@@ -57,7 +60,7 @@ body {
   scroll-behavior: smooth;
   font-family: var(--logo-font-Inter), var(--logo-font-fallback);
   font-size: var(--logo-calc-rem);
-  font-weight: var(--logo-weight-regular);
+  font-weight: var(--logo-weight-500);
 }
 
 body {

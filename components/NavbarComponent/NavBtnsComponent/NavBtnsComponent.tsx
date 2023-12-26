@@ -13,6 +13,7 @@ export default function NavBtnsComponent({
     cartRef,
     pathSlug,
     totalQuantity,
+    totalPrice,
     session
 }: {
     showMenu: boolean,
@@ -23,9 +24,10 @@ export default function NavBtnsComponent({
     cartRef: React.RefObject<HTMLDivElement>;
     pathSlug: NavigationActiveType,
     totalQuantity: number,
+    totalPrice: string,
     session: any
 }) {
-    const { cartData } = useCart();
+    const { cartData = [] } = useCart();
 
     return (
         <>
@@ -70,6 +72,7 @@ export default function NavBtnsComponent({
                 cartRef={cartRef}
                 pathSlug={pathSlug}
                 session={session}
+                totalPrice={totalPrice}
             />
         </>
     )

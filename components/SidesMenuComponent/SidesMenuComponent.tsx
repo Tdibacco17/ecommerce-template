@@ -11,7 +11,8 @@ export default function SidesMenuComponent({
     menuRef,
     cartRef,
     pathSlug,
-    session
+    session,
+    totalPrice
 }: {
     showMenu: boolean,
     showCart: boolean,
@@ -20,7 +21,8 @@ export default function SidesMenuComponent({
     menuRef: React.RefObject<HTMLDivElement>,
     cartRef: React.RefObject<HTMLDivElement>,
     pathSlug: NavigationActiveType,
-    session: any
+    session: any,
+    totalPrice: string,
 }) {
     return (
         <>
@@ -33,7 +35,7 @@ export default function SidesMenuComponent({
             </section>
             <section className={`${styles["side-menu-container"]} ${showCart && styles["active"]}`}>
                 <div className={styles["wrapper"]}>
-                    <CartMenuComponent handleShowCart={handleShowCart} cartRef={cartRef} pathSlug={pathSlug} />
+                    <CartMenuComponent totalPrice={totalPrice} handleShowCart={handleShowCart} cartRef={cartRef} pathSlug={pathSlug} />
                 </div>
             </section>
         </>

@@ -5,6 +5,7 @@ import { NavigationActiveType, NavigationInterface } from "@/types"
 import { getServerSession } from "next-auth";
 import NavBtnsContainer from "@/containers/NavBtnsContainer/NavBtnsContainer"
 import LogoutComponent from "../LogoutComponent/LogoutComponent";
+import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 
 export default async function NavbarComponent({
     pathSlug,
@@ -12,7 +13,7 @@ export default async function NavbarComponent({
     pathSlug: NavigationActiveType,
 }
 ) {
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions);
 
     return (
         <section className={styles["section-navbar-container"]}>
@@ -32,9 +33,9 @@ export default async function NavbarComponent({
                         </Link>
                     })}
                     {session && <Link
-                        className={`${styles["item-nav"]} ${pathSlug === "dashboard" && styles["active"]}`}
-                        href={`/dashboard`}>
-                        Dashboard
+                        className={`${styles["item-nav"]} ${pathSlug === data.NavbarComponent.dashboard.id && styles["active"]}`}
+                        href={data.NavbarComponent.dashboard.link}>
+                        {data.NavbarComponent.dashboard.title}
                     </Link>}
                 </div>
                 <div className={styles["right"]}>

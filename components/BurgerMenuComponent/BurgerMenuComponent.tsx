@@ -27,9 +27,9 @@ export default function BurgerMenuComponent({
                 </Link>
             })}
             {session && <Link
-                className={`${styles["item-nav"]} ${pathSlug === "dashboard" && styles["active"]}`}
-                href={`/dashboard`}>
-                Dashboard
+                className={`${styles["item-nav"]} ${pathSlug === data.NavbarComponent.dashboard.id && styles["active"]}`}
+                href={data.NavbarComponent.dashboard.link}>
+                {data.NavbarComponent.dashboard.title}
             </Link>}
         </div>
     )

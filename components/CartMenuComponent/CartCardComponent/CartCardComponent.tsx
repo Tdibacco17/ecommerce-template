@@ -30,7 +30,7 @@ export default function CartCardComponent({
                 <div className={styles["info-container"]}>
                     <div className={styles["header"]}>
                         <p className={styles["name"]}>{cartItem.productData.name}</p>
-                        <small className={styles["categorie"]}>{cartItem.productData.categorieTitle}</small>
+                        {/* <small className={styles["categorie"]}>{cartItem.productData.categorieTitle}</small> */}
                     </div>
                     <div className={styles["prices"]}>
                         <p className={styles["price"]}>{`$${cartItem.productData.price}`}</p>
@@ -73,7 +73,7 @@ export default function CartCardComponent({
                     />
                 </button>
             </div>
-            <button onClick={handleItemFav} className={styles["btn-fav"]}>
+            {/* <button onClick={handleItemFav} className={styles["btn-fav"]}>
                 {itemFav ?
                     <Image
                         src={"/assets/svg/cart/starActive.svg"}
@@ -86,7 +86,7 @@ export default function CartCardComponent({
                         width={22}
                         height={22}
                     />}
-            </button>
+            </button> */}
         </div>
     )
 }

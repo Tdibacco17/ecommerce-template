@@ -4,17 +4,20 @@ import { CartItemInterface } from "@/types/cartTypes";
 import Link from "next/link";
 import { NavigationActiveType } from "@/types";
 import CartCardContainer from "@/containers/CartCardContainer/CartCardContainer";
+import data from "@/models/webText.json"
 
 export default function CartMenuComponent({
     handleShowCart,
     cartRef,
-    pathSlug
+    pathSlug,
+    totalPrice
 }: {
     handleShowCart: () => void,
     cartRef: React.RefObject<HTMLDivElement>,
-    pathSlug: NavigationActiveType
+    pathSlug: NavigationActiveType,
+    totalPrice: string,
 }) {
-    const { cartData, handleClearCart } = useCart();
+    const { cartData = [] } = useCart();
 
     return (
         <div className={styles["column"]} ref={cartRef}>
@@ -31,17 +34,17 @@ export default function CartMenuComponent({
                         })
                     ) : (
                         <div className={styles["cart-msg"]}>
-                            <p>Tu carrito esta vacío</p>
+                            <p>{data.CartMenuComponent.empty}</p>
                             {pathSlug === "products" ?
                                 <p className={styles["item-nav"]}
                                     onClick={handleShowCart}>
-                                    Elegí algún producto
+                                    {data.CartMenuComponent.emptyMsg}
                                 </p>
                                 : <Link
                                     className={styles["item-nav"]}
                                     onClick={handleShowCart}
-                                    href={"/products"}>
-                                    Ver productos
+                                    href={data.CartMenuComponent.emptyRedirect.link}>
+                                    {data.CartMenuComponent.emptyRedirect.title}
                                 </Link>}
                         </div>
                     )
@@ -50,14 +53,20 @@ export default function CartMenuComponent({
             {cartData.length > 0 &&
                 <div className={styles["cart-footer"]}>
                     {/* <button onClick={() => handleClearCart()}>Limpiar carrito</button> */}
-                    <p className={styles["title-item"]}><span>Envio</span><span>Gratis</span></p>
-                    <p className={styles["title-item"]}><span>Total</span><span>$788</span></p>
+                    <p className={styles["title-item"]}>
+                        <span>{data.CartMenuComponent.send}</span>
+                        <span>{data.CartMenuComponent.free}</span>
+                    </p>
+                    <p className={styles["title-item"]}>
+                        <span>{data.CartMenuComponent.total}</span>
+                        <span>{`$${totalPrice}`}</span>
+                    </p>
                     {pathSlug !== "cart" &&
                         <Link
                             className={styles["btn-cart"]}
                             onClick={handleShowCart}
-                            href={"/cart"}>
-                            Ir al carrito
+                            href={data.CartMenuComponent.cart.link}>
+                            {data.CartMenuComponent.cart.title}
                         </Link>}
                 </div>
             }
