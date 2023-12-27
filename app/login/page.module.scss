@@ -2,7 +2,106 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 6rem;
-    padding-top: 5rem;
+    padding: 0 2rem;
+    height: 100vh;
+    max-height: 100vh;
+
+    @media (max-width:442px) {
+        padding: 0 1rem;
+    }
+
+    .wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 20rem;
+            position: relative;
+
+            @media (max-width:442px) {
+                max-width: 100vw;
+            }
+
+            .group-complete {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                .title {
+                    font-size: var(--logo-size-16);
+                    color: var(--logo-light-gray);
+                }
+
+                .active-title {
+                    font-size: var(--logo-size-16);
+                    color: var(--logo-blue);
+                }
+
+                .field {
+                    font-size: var(--logo-size-16);
+                    border: none;
+                    border-bottom: 1px solid var(--logo-white);
+                    background-color: transparent;
+                    padding: 0.5rem 0;
+                    color: var(--logo-white);
+                    outline: none;
+                    border-color: var(--logo-light-gray);
+
+                    &:focus {
+                        border-color: var(--logo-blue);
+                    }
+
+                    &::placeholder {
+                        font-size: var(--logo-size-14);
+                    }
+                }
+            }
+
+            .btn-form {
+                background-color: var(--logo-white);
+                color: var(--logo-black);
+                border-radius: var(--logo-border-radius);
+                width: 100%;
+                padding: 0.3rem 0;
+                text-align: center;
+                opacity: 1;
+                border: none;
+                cursor: pointer;
+                font-size: var(--logo-size-16);
+                font-weight: var(--logo-weight-500);
+                opacity: 0.85;
+                height: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                &.disabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        .error-msg {
+            font-size: var(--logo-size-14);
+            position: absolute;
+            bottom: -2.5rem;
+            color: var(--logo-failure);
+            text-align: center;
+        }
+    }
 }

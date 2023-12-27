@@ -5,7 +5,7 @@ import { ParseResponseInterface } from "@/types/apiResponseTypes"
 
 export default function DashboardPage() {
     const { data: session, status } = useSession()
-    
+
     if (session) {
         const getProduct = async () => {
             const response = await fetch(`/api/db/products`, {
@@ -41,6 +41,11 @@ export default function DashboardPage() {
                 })
             })
             const rawRespone: ParseResponseInterface = await response.json()
+            if (rawRespone.status !== 200) {
+                console.log(rawRespone.message)
+                return
+            }
+            console.log(rawRespone.message)
         }
 
         return (

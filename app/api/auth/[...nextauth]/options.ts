@@ -23,15 +23,13 @@ export const authOptions: AuthOptions = {
                         })
                     })
                     const rawRespone = await response.json()
-
                     if (rawRespone?.status !== 200) {
-                        throw new Error(rawRespone.message)
-                        // return null
+                        return null
                     }
                     return rawRespone
                 } catch (error) {
-                    console.error("Error in the request: ", error);
-                    throw new Error('Invalid credentials')
+                    console.error("Error in the request[next-auth]: ", error);
+                    return null
                 }
             }
         })

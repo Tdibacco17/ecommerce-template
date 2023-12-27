@@ -75,10 +75,11 @@
             width: 100%;
             padding: 0.3rem 0;
             text-align: center;
-            opacity: 1;
+            border: none;
+            opacity: 0.85;
 
             &:hover {
-                opacity: 0.85;
+                opacity: 1;
             }
         }
     }

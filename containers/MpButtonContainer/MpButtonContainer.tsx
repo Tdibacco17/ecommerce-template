@@ -39,7 +39,7 @@ export default function MpButtonContainer() {
             handleClearCart()
             return
         } catch (error) {
-            console.log("[Catch error in the request to MP]:", error);
+            console.log("Catch error in the request to MP: ", error);
         } finally {
             setLoading(false);
         }
