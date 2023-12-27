@@ -1,8 +1,6 @@
 import CredentialsProvider from "next-auth/providers/credentials";
-import connectDB from "@/utils/connection";
-import User from "@/models/user";
-import bcrypt from "bcryptjs";
 import type { AuthOptions } from "next-auth";
+import { AuthResponseInterface } from "@/types/apiResponseTypes";
 
 export const authOptions: AuthOptions = {
     providers: [
@@ -13,17 +11,28 @@ export const authOptions: AuthOptions = {
                 password: { label: "Password", type: "password", placeholder: "****" }
             },
             async authorize(credentials, req) {
-                await connectDB()
+                try {
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/login`, {
+                        method: "POST",
+                        headers: {
+                            "Content-type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            username: credentials?.username,
+                            password: credentials?.password
+                        })
+                    })
+                    const rawRespone = await response.json()
 
-                const userFound = await User.findOne({ username: credentials?.username }).select("+password")
-
-                if (!userFound) throw new Error('Invalid credentials')
-
-                const passwordMatch = await bcrypt.compare(credentials!.password, userFound.password)
-
-                if (!passwordMatch) throw new Error('Invalid credentials')
-
-                return userFound.username
+                    if (rawRespone?.status !== 200) {
+                        throw new Error(rawRespone.message)
+                        // return null
+                    }
+                    return rawRespone
+                } catch (error) {
+                    console.error("Error in the request: ", error);
+                    throw new Error('Invalid credentials')
+                }
             }
         })
     ],
@@ -33,7 +42,7 @@ export const authOptions: AuthOptions = {
             return token
         },
         session({ session, token }) {
-            session.user = token.user as any
+            session.user = token.user as AuthResponseInterface
             return session
         }
     },

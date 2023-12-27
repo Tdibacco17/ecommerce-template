@@ -18,6 +18,7 @@ export default function LoginPage() {
             password: formData.get('password'),
             redirect: false
         })
+
         if (response?.error) setError(response.error)
 
         if (response?.ok) return router.push("/dashboard")

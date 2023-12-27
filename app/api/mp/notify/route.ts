@@ -1,7 +1,7 @@
 import { NewSaleRequestInterface } from '@/types/contactTypes';
 import MercadoPagoConfig, { Payment } from 'mercadopago';
 import { NextResponse } from 'next/server';
-import { ParseResponseInterface } from '@/types';
+import { ParseResponseInterface } from '@/types/apiResponseTypes';
 import { handleNewSale } from '@/utils/email/handleNewSale';
 
 export async function POST(req: Request) {
@@ -64,7 +64,7 @@ export async function POST(req: Request) {
         }
     } catch (error) {
         return NextResponse.json({
-            message: "Catch error.",
+            message: `Catch error in notify: ${error}`,
             status: 500
         }, { status: 500 });
     }

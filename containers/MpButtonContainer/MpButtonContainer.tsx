@@ -1,7 +1,7 @@
 'use client'
 import MpButtonComponent from "@/components/MpButtonComponent/MpButtonComponent"
 import { useCart } from "@/hooks/useCart"
-import { ParseResponseInterface } from "@/types"
+import { MercadoPagoResponseInterface } from "@/types/apiResponseTypes"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
@@ -24,7 +24,7 @@ export default function MpButtonContainer() {
                 },
                 body: JSON.stringify({ cartData: cartData })
             })
-            const parseResponse: ParseResponseInterface = await rawData.json();
+            const parseResponse: MercadoPagoResponseInterface = await rawData.json();
             //animacion de tiempo
             await new Promise(resolve => setTimeout(resolve, 1500));
 

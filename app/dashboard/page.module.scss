@@ -5,4 +5,10 @@
     justify-content: flex-start;
     gap: 6rem;
     padding-top: 5rem;
+    width: 100%;
+
+    .center {
+        max-width: 50%;
+        word-break: break-all;
+    }
 }

@@ -21,6 +21,27 @@ export interface ProductInterface {
     categories: CategoriesFilterInterface[]
 }
 
+export interface ProductSchemaInterface {
+    slug: string,
+    name: string,
+    categorieTitle: CategorieTitle,
+    price: number,
+    oldPrice?: number,
+    discount?: number,
+    cloudinaryUrl: string,
+    isNewIn: boolean,
+    details: {
+        imagesData: string[],
+        description: string[],
+    },
+    categories: CategoriesFilterInterface[]
+}
+
+export interface BodyProductSchemaInterface extends ProductSchemaInterface {
+    productData: ProductSchemaInterface,
+    token: string
+}
+
 // categorias
 export type CategoriesFilterInterface =
     "all"

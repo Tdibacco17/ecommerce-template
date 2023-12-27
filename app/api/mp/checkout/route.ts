@@ -1,3 +1,4 @@
+import { MercadoPagoResponseInterface } from '@/types/apiResponseTypes';
 import { CartItemInterface } from '@/types/cartTypes';
 import MercadoPagoConfig, { Preference } from 'mercadopago';
 import { NextResponse } from 'next/server';
@@ -38,10 +39,10 @@ export async function POST(req: Request) {
             message: "Operation completed successfully.",
             url: response.init_point,
             status: 200
-        }, { status: 200 })
+        } as MercadoPagoResponseInterface, { status: 200 })
     } catch (error) {
         return NextResponse.json({
-            message: "Catch error.",
+            message:  `Catch error in checkout: ${error}`,
             status: 500
         }, { status: 500 });
     }
