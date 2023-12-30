@@ -1,53 +1,15 @@
 'use client'
 import { useSession } from "next-auth/react"
 import styles from "./page.module.scss"
-import { ParseResponseInterface } from "@/types/apiResponseTypes"
+import { handleGetProduct } from "@/utils/fetchFunctions"
 
 export default function DashboardPage() {
     const { data: session, status } = useSession()
-
     if (session) {
         const getProduct = async () => {
-            const response = await fetch(`/api/db/products`, {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                },
-                body: JSON.stringify({
-                    productData: {
-                        slug: "dress-floral",
-                        name: "Vestido Floral",
-                        categorieTitle: "Remera",
-                        price: 1000,
-                        oldPrice: 1500,
-                        discount: 10,
-                        cloudinaryUrl: "/jsadjas/(sjadlc-asdok-c.com",
-                        isNewIn: true,
-                        details: {
-                            imagesData: [
-                                "/jsadjas/(sjadlc-asdok-c.com",
-                                "/jsadjas/(sjadlc-asdok-c.com"
-                            ],
-                            description: [
-                                "asdjasdjdasjdas",
-                                "asdokasdoaskd"
-                            ]
-                        },
-                        categories: [
-                            "all"
-                        ],
-                    },
-                    token: session?.user.token,
-                })
-            })
-            const rawRespone: ParseResponseInterface = await response.json()
-            if (rawRespone.status !== 200) {
-                console.log(rawRespone.message)
-                return
-            }
-            console.log(rawRespone.message)
+            const rawResponse = await handleGetProduct()
+            console.log(rawResponse)
         }
-
         return (
             <div className={styles["dashboard-page-container"]}>
                 <div className={styles["center"]}>

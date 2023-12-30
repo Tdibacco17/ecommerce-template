@@ -37,11 +37,6 @@ export interface ProductSchemaInterface {
     categories: CategoriesFilterInterface[]
 }
 
-export interface BodyProductSchemaInterface extends ProductSchemaInterface {
-    productData: ProductSchemaInterface,
-    token: string
-}
-
 // categorias
 export type CategoriesFilterInterface =
     "all"
