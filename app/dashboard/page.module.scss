@@ -4,11 +4,14 @@
     align-items: center;
     justify-content: flex-start;
     gap: 6rem;
-    padding-top: 5rem;
+    padding: 0 2rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
     width: 100%;
 
-    .center {
-        max-width: 50%;
-        word-break: break-all;
+    .wrapper {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
     }
 }

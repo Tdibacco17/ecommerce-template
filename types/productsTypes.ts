@@ -1,4 +1,9 @@
-import { ImgDataInterface } from ".";
+import { CloudinaryImgInterface, ImgDataInterface } from ".";
+
+export interface ProductsDataContextInterface {
+    productsData: ProductInterface[],
+    handleProductsDataChange: Function
+}
 
 // product
 export interface ProductsDataInterface {
@@ -8,33 +13,16 @@ export interface ProductsDataInterface {
 export interface ProductInterface {
     slug: string,
     name: string,
-    categorieTitle: CategorieTitle,
     price: number,
-    oldPrice: number,
-    discount: number,
-    image: ImgDataInterface,
-    isNewIn: boolean,
-    details: {
-        imagesData: ImgDataInterface[],
-        description: string[],
-    },
-    categories: CategoriesFilterInterface[]
-}
-
-export interface ProductSchemaInterface {
-    slug: string,
-    name: string,
-    categorieTitle: CategorieTitle,
-    price: number,
+    stock: number,
     oldPrice?: number,
     discount?: number,
-    cloudinaryUrl: string,
-    isNewIn: boolean,
+    imageData: CloudinaryImgInterface,
     details: {
-        imagesData: string[],
-        description: string[],
+        imagesData: CloudinaryImgInterface[],
+        description: string,// string[],
     },
-    categories: CategoriesFilterInterface[]
+    categories: string[]//CategoriesFilterInterface[],
 }
 
 // categorias
@@ -42,10 +30,23 @@ export type CategoriesFilterInterface =
     "all"
     | "tshirt"
     | "sweatshirts"
-    | "top"
-    | "sportswear"
-    | "bottoms"
     | "dresses"
     | "outstanding";
 
 export type CategorieTitle = "Remera" | "Sudadera" | "Top" | "Ropa deportiva" | "Pantalones" | "Vestido"
+
+
+//CREATE PRODUCT 
+export interface FormDataInterface {
+    slug: string;
+    name: string;
+    price: string;
+    oldPrice: string;
+    discount: number;
+    stock: number;
+    description: string[];
+}
+export interface FormImgDataInterface {
+    imageData: File | null;
+    imagesData: FileList | null;
+}

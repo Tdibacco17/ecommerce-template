@@ -80,6 +80,11 @@ a {
   text-decoration: none;
 }
 
+button,
+textarea {
+  font-family: var(--logo-font-Inter), var(--logo-font-fallback);
+}
+
 .no-scroll {
   max-height: 100vh;
 }

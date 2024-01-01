@@ -1,5 +1,5 @@
 import NavbarComponent from "@/components/NavbarComponent/NavbarComponent";
-import { CartProvider } from "@/context/CartContextProvider";
+import AuthProvider from "@/context/AuthProvider";
 
 export default function CartLayout({
     children,
@@ -8,10 +8,10 @@ export default function CartLayout({
 }) {
     return (
         <>
-            <CartProvider>
-                <NavbarComponent pathSlug="dashboard" />
-            </CartProvider>
-            {children}
+            <NavbarComponent pathSlug="dashboard" />
+            <AuthProvider>
+                {children}
+            </AuthProvider>
         </>
     )
 }

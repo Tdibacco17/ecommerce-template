@@ -2,8 +2,12 @@ import NotificationMpContainer from "@/containers/NotificationMpContainer/Notifi
 import styles from "./page.module.scss"
 import { CartProvider } from "@/context/CartContextProvider"
 import NavbarComponent from "@/components/NavbarComponent/NavbarComponent"
+import { handleGetProducts } from "@/utils/fetchFunctions"
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await handleGetProducts()
+  console.log(products)
+
   return (
     <>
       <CartProvider>

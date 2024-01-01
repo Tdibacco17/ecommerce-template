@@ -1,7 +1,7 @@
-import Providers from "../context/AuthProvider";
 import type { Metadata } from 'next'
 import './globals.css'
 import { inter } from '@/utils/fonts'
+import { ProductsProvider } from "@/context/ProductsContextProvider";
 
 export const metadata: Metadata = {
   title: 'Ecommerce Template',
@@ -24,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
-          <main id="top">
-            {children}
-          </main>
-        </Providers>
+        <ProductsProvider>
+            <main id="top">
+              {children}
+            </main>
+        </ProductsProvider>
       </body>
     </html>
   )

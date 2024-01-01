@@ -8,12 +8,12 @@ export default function ProductsComponent() {
         <section className={styles["section-products-container"]}>
             <div className={styles["wrapper"]}>
                 <div className={styles["grid-container"]}>
-                    {Object.values(productsData).map((productsData: ProductInterface) => {
+                    {/* {Object.values(productsData).map((productsData: ProductInterface) => {
                         return <ProductCardComponent
                             key={productsData.slug}
                             productsData={productsData}
                         />
-                    })}
+                    })} */}
                 </div>
             </div>
         </section>
